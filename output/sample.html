@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미리보기</title>
+    <style>
+        body {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.8;
+            color: #333;
+        }
+        h1 { border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        h2 { margin-top: 30px; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px 12px; }
+        th { background: #f5f5f5; }
+        blockquote {
+            border-left: 4px solid #ddd;
+            margin: 0;
+            padding: 10px 20px;
+            color: #666;
+            background: #f9f9f9;
+        }
+        img { max-width: 100%; }
+    </style>
+</head>
+<body>
+<h1 id="python-fastapi-api">Python FastAPI 입문 - 첫 API 서버 만들기</h1>
+<p>FastAPI는 Python으로 API를 빠르게 만들 수 있는 웹 프레임워크입니다.</p>
+<h2 id="_1">설치</h2>
+<div class="code-block" style="background: #272822"><pre style="line-height: 125%;"><span></span>pip<span style="color: #F8F8F2"> </span>install<span style="color: #F8F8F2"> </span>fastapi<span style="color: #F8F8F2"> </span>uvicorn
+</pre></div>
+
+<h2 id="api">첫 번째 API 만들기</h2>
+<div class="code-block" style="background: #272822"><pre style="line-height: 125%;"><span></span><span style="color: #FF4689">from</span><span style="color: #F8F8F2"> fastapi </span><span style="color: #FF4689">import</span> <span style="color: #F8F8F2">FastAPI</span>
+
+<span style="color: #F8F8F2">app</span> <span style="color: #FF4689">=</span> <span style="color: #F8F8F2">FastAPI()</span>
+
+<span style="color: #A6E22E">@app</span><span style="color: #FF4689">.</span><span style="color: #F8F8F2">get(</span><span style="color: #E6DB74">&quot;/&quot;</span><span style="color: #F8F8F2">)</span>
+<span style="color: #66D9EF">def</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">read_root</span><span style="color: #F8F8F2">():</span>
+    <span style="color: #66D9EF">return</span> <span style="color: #F8F8F2">{</span><span style="color: #E6DB74">&quot;message&quot;</span><span style="color: #F8F8F2">:</span> <span style="color: #E6DB74">&quot;Hello, World!&quot;</span><span style="color: #F8F8F2">}</span>
+
+<span style="color: #A6E22E">@app</span><span style="color: #FF4689">.</span><span style="color: #F8F8F2">get(</span><span style="color: #E6DB74">&quot;/items/{item_id}&quot;</span><span style="color: #F8F8F2">)</span>
+<span style="color: #66D9EF">def</span><span style="color: #F8F8F2"> </span><span style="color: #A6E22E">read_item</span><span style="color: #F8F8F2">(item_id:</span> <span style="color: #F8F8F2">int,</span> <span style="color: #F8F8F2">q:</span> <span style="color: #F8F8F2">str</span> <span style="color: #FF4689">=</span> <span style="color: #66D9EF">None</span><span style="color: #F8F8F2">):</span>
+    <span style="color: #66D9EF">return</span> <span style="color: #F8F8F2">{</span><span style="color: #E6DB74">&quot;item_id&quot;</span><span style="color: #F8F8F2">:</span> <span style="color: #F8F8F2">item_id,</span> <span style="color: #E6DB74">&quot;q&quot;</span><span style="color: #F8F8F2">:</span> <span style="color: #F8F8F2">q}</span>
+</pre></div>
+
+<h2 id="_2">서버 실행</h2>
+<div class="code-block" style="background: #272822"><pre style="line-height: 125%;"><span></span>uvicorn<span style="color: #F8F8F2"> </span>main:app<span style="color: #F8F8F2"> </span>--reload
+</pre></div>
+
+<p>실행하면 <code>http://127.0.0.1:8000</code>에서 API가 동작합니다.</p>
+<h2 id="_3">자동 문서화</h2>
+<p>FastAPI는 자동으로 API 문서를 생성합니다:</p>
+<table>
+<thead>
+<tr>
+<th>경로</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/docs</code></td>
+<td>Swagger UI</td>
+</tr>
+<tr>
+<td><code>/redoc</code></td>
+<td>ReDoc</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>FastAPI의 가장 큰 장점은 타입 힌트만으로 자동 검증과 문서화가 된다는 점입니다.</p>
+</blockquote>
+<h2 id="_4">마무리</h2>
+<p>이번 글에서는 FastAPI의 기본적인 사용법을 알아보았습니다. 다음에는 데이터베이스 연동을 다뤄보겠습니다.</p>
+</body>
+</html>
