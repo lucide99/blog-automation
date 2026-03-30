@@ -4,11 +4,11 @@ ai:
   claude:
     model: claude-sonnet-4-6
   openai:
-    model: gpt-4o
+    model: gpt-4.1
 
 # 옵시디언 연동
 obsidian:
-  vault_path: ~/Documents/Obsidian  # 옵시디언 볼트 경로
+  vault_path: /Users/user/Documents/Obsidian Vault/private  # 옵시디언 볼트 경로
   blog_folder: Blog                  # 볼트 내 블로그 글 폴더
   image_folder: Blog/images          # 볼트 내 이미지 폴더
 

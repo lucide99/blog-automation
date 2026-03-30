@@ -6,3 +6,4 @@ pyperclip>=1.9
 PyYAML>=6.0
 gitpython>=3.1
 click>=8.1
+python-dotenv>=1.0
